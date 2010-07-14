@@ -19,6 +19,7 @@
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
+    ADWLauncher \
     CarHome \
     DeskClock \
     AlarmProvider \

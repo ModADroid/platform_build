@@ -38,6 +38,7 @@ PRODUCT_PACKAGES := \
     MediaProvider \
     PicoTts \
     SettingsProvider \
+    Superuser \
     TelephonyProvider \
     TtsService \
     VpnServices \
