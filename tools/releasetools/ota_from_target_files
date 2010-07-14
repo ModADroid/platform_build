@@ -317,8 +317,6 @@ def MakeRecoveryPatch(output_zip, recovery_img, boot_img):
 
   d = Difference(recovery_img, boot_img)
   _, _, patch = d.ComputePatch()
-  common.ZipWriteStr(output_zip, "recovery/recovery-from-boot.p", patch)
-  Item.Get("system/recovery-from-boot.p", dir=False)
 
   # Images with different content will have a different first page, so
   # we check to see if this recovery has already been installed by
@@ -380,7 +378,6 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   script.FormatPartition("system")
   script.Mount("MTD", "system", "/system")
-  script.UnpackPackageDir("recovery", "/system")
   script.UnpackPackageDir("system", "/system")
 
   symlinks = CopySystemFiles(input_zip, output_zip)
@@ -388,9 +385,6 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   boot_img = File("boot.img", common.BuildBootableImage(
       os.path.join(OPTIONS.input_tmp, "BOOT")))
-  recovery_img = File("recovery.img", common.BuildBootableImage(
-      os.path.join(OPTIONS.input_tmp, "RECOVERY")))
-  MakeRecoveryPatch(output_zip, recovery_img, boot_img)
 
   Item.GetMetadata(input_zip)
   Item.Get("system").SetPermissions(script)
