@@ -10,7 +10,7 @@ echo "ro.build.version.sdk=$PLATFORM_SDK_VERSION"
 echo "ro.build.version.codename=$PLATFORM_VERSION_CODENAME"
 echo "ro.build.version.release=$PLATFORM_VERSION"
 if [ -z "$BUILD_DATE" ] ; then
-   BUILD_DATE=`date`
+    BUILD_DATE=`date`
 fi
 echo "ro.build.date=$BUILD_DATE"
 if [ -z "$BUILD_UTC_DATE" ] ; then
@@ -19,7 +19,10 @@ fi
 echo "ro.build.date.utc=$BUILD_UTC_DATE"
 echo "ro.build.type=$TARGET_BUILD_TYPE"
 echo "ro.build.user=$USER"
-echo "ro.build.host=`hostname`"
+if [ -z "$BUILD_HOST" ] ; then
+    BUILD_HOST=`hostname`
+fi
+echo "ro.build.host=$BUILD_HOST"
 echo "ro.build.tags=$BUILD_VERSION_TAGS"
 echo "ro.product.model=$PRODUCT_MODEL"
 echo "ro.product.brand=$PRODUCT_BRAND"
