@@ -364,10 +364,6 @@ def WriteFullOTAPackage(input_zip, output_zip):
       input_tmp=OPTIONS.input_tmp,
       metadata=metadata)
 
-  if not OPTIONS.omit_prereq:
-    ts = GetBuildProp("ro.build.date.utc", input_zip)
-    script.AssertOlderBuild(ts)
-
   AppendAssertions(script, input_zip)
   device_specific.FullOTA_Assertions()
 

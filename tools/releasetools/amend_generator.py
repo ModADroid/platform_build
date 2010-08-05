@@ -65,12 +65,6 @@ class AmendGenerator(object):
           '"ro.build.fingerprint=%s") == "true"') % i for i in fp]
     self.script.append("assert %s" % (" || ".join(x),))
 
-  def AssertOlderBuild(self, timestamp):
-    """Assert that the build on the device is older (or the same as)
-    the given timestamp."""
-    self.script.append("run_program PACKAGE:check_prereq %s" % (timestamp,))
-    self.included_files.add("check_prereq")
-
   def AssertDevice(self, device):
     """Assert that the device identifier is the given string."""
     self.script.append('assert getprop("ro.product.device") == "%s" || '
