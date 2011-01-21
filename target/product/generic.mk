@@ -19,7 +19,6 @@
 
 PRODUCT_PACKAGES := \
     AccountAndSyncSettings \
-    ADWLauncher \
     CarHome \
     DeskClock \
     AlarmProvider \
@@ -32,6 +31,7 @@ PRODUCT_PACKAGES := \
     Email \
     Gallery3D \
     LatinIME \
+    Launcher2 \
     Mms \
     Music \
     Provision \
