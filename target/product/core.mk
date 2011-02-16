@@ -29,6 +29,7 @@ PRODUCT_PACKAGES := \
     Browser \
     CarHomeLauncher \
     Contacts \
+    FileManager \
     Home \
     HTMLViewer \
     Phone \
