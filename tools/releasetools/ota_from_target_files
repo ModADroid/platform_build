@@ -386,18 +386,18 @@ def WriteFullOTAPackage(input_zip, output_zip):
   symlinks = CopySystemFiles(input_zip, output_zip)
   script.MakeSymlinks(symlinks)
 
-  boot_img = File("boot.img", common.BuildBootableImage(
-      os.path.join(OPTIONS.input_tmp, "BOOT")))
+  #boot_img = File("boot.img", common.BuildBootableImage(
+  #    os.path.join(OPTIONS.input_tmp, "BOOT")))
 
   Item.GetMetadata(input_zip)
   Item.Get("system").SetPermissions(script)
 
-  common.CheckSize(boot_img.data, "boot.img")
-  common.ZipWriteStr(output_zip, "boot.img", boot_img.data)
+  #common.CheckSize(boot_img.data, "boot.img")
+  #common.ZipWriteStr(output_zip, "boot.img", boot_img.data)
   script.ShowProgress(0.2, 0)
 
   script.ShowProgress(0.2, 10)
-  script.WriteRawImage("boot", "boot.img")
+  #script.WriteRawImage("boot", "boot.img")
 
   script.ShowProgress(0.1, 0)
   device_specific.FullOTA_InstallEnd()
