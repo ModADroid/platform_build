@@ -20,6 +20,7 @@
 # in inherited configurations.
 
 PRODUCT_PACKAGES := \
+    AndroidTerm \
     VoiceDialer
 
 # Additional settings used in all AOSP builds
