@@ -21,6 +21,20 @@ EOF
     echo $A
 }
 
+function fixzip()
+{
+    cp $OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$LOGNAME.zip . 
+    ( rm -rf tmp; mkdir tmp; unzip -q $OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$LOGNAME.zip -d tmp )
+    cd tmp/META-INF/com/google/android
+    rm -f update-binary updater-script
+    sed -i "s/format SYSTEM:/delete_recursive SYSTEM:\nformat SYSTEM:/" update-script
+    cd ../../../..
+    zip -q -r $TARGET_PRODUCT.zip . 
+    mv $TARGET_PRODUCT.zip ../
+    cd ..
+    rm -rf tmp $TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$LOGNAME.zip
+}
+
 # Get the value of a build variable as an absolute path.
 function get_abs_build_var()
 {
