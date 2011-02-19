@@ -65,10 +65,10 @@ class AmendGenerator(object):
           '"ro.build.fingerprint=%s") == "true"') % i for i in fp]
     self.script.append("assert %s" % (" || ".join(x),))
 
-  def AssertDevice(self, device):
-    """Assert that the device identifier is the given string."""
-    self.script.append('assert getprop("ro.product.device") == "%s" || '
-                       'getprop("ro.build.product") == "%s"' % (device, device))
+  #def AssertDevice(self, device):
+    #"""Assert that the device identifier is the given string."""
+    #self.script.append('assert getprop("ro.product.device") == "%s" || '
+    #                   'getprop("ro.build.product") == "%s"' % (device, device))
 
   def AssertSomeBootloader(self, *bootloaders):
     """Asert that the bootloader version is one of *bootloaders."""

@@ -299,9 +299,9 @@ def SignOutput(temp_zip_name, output_zip_name):
                   whole_file=True)
 
 
-def AppendAssertions(script, input_zip):
-  device = GetBuildProp("ro.product.device", input_zip)
-  script.AssertDevice(device)
+#def AppendAssertions(script, input_zip):
+#  device = GetBuildProp("ro.product.device", input_zip)
+#  script.AssertDevice(device)
 
 
 def MakeRecoveryPatch(output_zip, recovery_img, boot_img):
@@ -371,8 +371,8 @@ def WriteFullOTAPackage(input_zip, output_zip):
       input_tmp=OPTIONS.input_tmp,
       metadata=metadata)
 
-  AppendAssertions(script, input_zip)
-  device_specific.FullOTA_Assertions()
+  #AppendAssertions(script, input_zip)
+  #device_specific.FullOTA_Assertions()
 
   script.ShowProgress(0.5, 0)
 
@@ -689,8 +689,8 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   #  0.1 for unpacking verbatim files, symlinking, and doing the
   #      device-specific commands.
 
-  AppendAssertions(script, target_zip)
-  device_specific.IncrementalOTA_Assertions()
+  #AppendAssertions(script, target_zip)
+  #device_specific.IncrementalOTA_Assertions()
 
   script.Print("Verifying current system...")
 

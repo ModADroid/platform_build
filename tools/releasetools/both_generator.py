@@ -36,7 +36,7 @@ class BothGenerator(object):
     getattr(self.amend, name)(*args)
 
   def AssertSomeFingerprint(self, *a): self._DoBoth("AssertSomeFingerprint", *a)
-  def AssertDevice(self, *a): self._DoBoth("AssertDevice", *a)
+  #def AssertDevice(self, *a): self._DoBoth("AssertDevice", *a)
   def AssertSomeBootloader(self, *a): self._DoBoth("AssertSomeBootloader", *a)
   def ShowProgress(self, *a): self._DoBoth("ShowProgress", *a)
   def PatchCheck(self, *a): self._DoBoth("PatchCheck", *a)

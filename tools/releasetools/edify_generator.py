@@ -78,11 +78,11 @@ class EdifyGenerator(object):
            ');')
     self.script.append(self._WordWrap(cmd))
 
-  def AssertDevice(self, device):
-    """Assert that the device identifier is the given string."""
-    cmd = ('assert(getprop("ro.product.device") == "%s" ||\0'
-           'getprop("ro.build.product") == "%s");' % (device, device))
-    self.script.append(self._WordWrap(cmd))
+  #def AssertDevice(self, device):
+    #"""Assert that the device identifier is the given string."""
+    #cmd = ('assert(getprop("ro.product.device") == "%s" ||\0'
+    #       'getprop("ro.build.product") == "%s");' % (device, device))
+    #self.script.append(self._WordWrap(cmd))
 
   def AssertSomeBootloader(self, *bootloaders):
     """Asert that the bootloader version is one of *bootloaders."""
