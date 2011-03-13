@@ -23,6 +23,7 @@ EOF
 
 function fixzip()
 {
+    echo "Fixing zip for compatiblity with 2.x clockworkmod recovery"
     cp $OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$LOGNAME.zip . 
     ( rm -rf tmp; mkdir tmp; unzip -q $OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$LOGNAME.zip -d tmp )
     cd tmp/META-INF/com/google/android
